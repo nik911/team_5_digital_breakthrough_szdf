@@ -16,8 +16,7 @@ def final_presa():
     with open('json.json', 'r', encoding='utf-8') as f:
         text = json.load(f)
         company_name =  text['title']
-        mission_statement = 'statement' ## нет в файле
-        #mission_statement = text['statement'] ## нет в файле
+        mission_statement = text['statement']
 
         model_engine = "text-davinci-003"
         prompt = "Сформулируй проблематику более грамотно: "+text['problem']
