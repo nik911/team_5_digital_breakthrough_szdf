@@ -76,7 +76,7 @@ def problem():
         with open('json.json', 'r', encoding='utf-8') as f:
             text = json.load(f)
             model_engine = "text-davinci-003"
-            prompt = "Сфорулируй проблематику более грамотно: "+text['problem']
+            prompt = "Сформулируй проблематику более грамотно: "+text['problem']
 
             max_tokens = 1024
 
