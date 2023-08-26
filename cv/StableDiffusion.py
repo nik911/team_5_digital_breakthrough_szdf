@@ -6,8 +6,8 @@ from diffusers import StableDiffusionPipeline
 from huggingface_hub import login
 
 
-access_token_read = "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"
-access_token_write = "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"
+access_token_read = ""
+access_token_write = ""
 login(token = access_token_read)
 
 pipe = StableDiffusionPipeline.from_pretrained(

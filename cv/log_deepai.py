@@ -6,6 +6,6 @@ r = requests.post(
     data={
         'text': 'IT company',
     },
-    headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
+    headers={'api-key': ''}
 )
 print(r.json())
