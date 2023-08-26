@@ -6,15 +6,12 @@ theme: gaia
 
 # {{company_name}}
 
-![bg right:40% 80%](https://catherineasquithgallery.com/uploads/posts/2021-02/1614529164_84-p-krasnii-krug-na-belom-fone-91.png) 
-
-
+![bg right:40% 80%](https://catherineasquithgallery.com/uploads/posts/2021-02/1614529164_84-p-krasnii-krug-na-belom-fone-91.png)
 {{mission_statement}}
 
 ---
 
 ## Проблема
-
 
 Описание проблемы
 
@@ -24,20 +21,17 @@ theme: gaia
 
 ## Что такое {{company_name}}
 
-{{#each achievements}}
-- {{this}}
-- {{this}}
-- {{this}}
+{{advantages}}
 
 ## Целевая аудитория
 
-{{}}
+{{targen_person}}
 
 ---
 
 ## Решение
 
-Описание функционала 
+Описание функционала
 {{functional_description}}
 
 
@@ -45,28 +39,23 @@ theme: gaia
 
 ## Рынок
 
-![bg left](https://cdn2.slidemodel.com/wp-content/uploads/9074-01-tam-sam-som-1.jpg) 
-TAM {{}}
+![bg left](https://cdn2.slidemodel.com/wp-content/uploads/9074-01-tam-sam-som-1.jpg)
+TAM {{tam}}
 
-SAM {{}}
+SAM {{sam}}
 
-SOM {{}}
+SOM {{som}}
+
 
 ---
 
 ## Конкуренты
 
-{{#each competitors}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-
+{{competitors}}
 
 ---
 
-![bg left: 70%](https://bootstraptema.ru/_sf/20/97627110.jpg) 
+![bg left: 70%](https://bootstraptema.ru/_sf/20/97627110.jpg)
 
 ---
 
@@ -74,16 +63,26 @@ SOM {{}}
 
 Трекшн, партнерства, выручка, количество клиентов, CAC - LTV
 
+Трекшн, партнерства, выручка, количество клиентов, CAC - 0.1V
+Выручка м
+{{1000}}
+Количество клиентов
+{{10}}
+Скорость оттока м
+{{10}}
+APRU
+{{100.0}}
+LT
+{{0.1}}
+LTV
+{{0.1V}}
+
+
 ---
 
 ## Команда
 
-{{#each team}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
+{{team}}
 
 ---
 
@@ -91,16 +90,14 @@ SOM {{}}
 
 Привлекаем инвестиции в размере {{count}} руб.
 
-Назначение привлеченных средств 
-![bg left:40% 90% ](https://i2.wp.com/matplotlib.org/1.3.1/mpl_examples/pie_and_polar_charts/pie_demo_features.hires.png) 
+Назначение привлеченных средств
+![bg left:40% 90% ](https://i2.wp.com/matplotlib.org/1.3.1/mpl_examples/pie_and_polar_charts/pie_demo_features.hires.png)
 
 ---
 
-![bg left: 80%](https://vkool.com/wp-content/uploads/ico/snovio/Roadmap-20.jpg) 
+![bg left: 80%](https://vkool.com/wp-content/uploads/ico/snovio/Roadmap-20.jpg)
 
 ---
-
-
 ## Контакты
 
 Email: {{email}}

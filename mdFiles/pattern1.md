@@ -9,7 +9,7 @@ class:
 
 # {{company_name}}
 
-![bg right:40% 80%](https://catherineasquithgallery.com/uploads/posts/2021-02/1614529164_84-p-krasnii-krug-na-belom-fone-91.png) 
+![bg right:40% 80%](logo) 
 {{mission_statement}}
 
 ---
@@ -17,7 +17,7 @@ class:
 ## Проблема
 
 Описание проблемы
-
+![bg right:40% 80%](problem)
 {{description_of_the_problem}}
 
 ---
@@ -58,7 +58,7 @@ SOM {{som}}
 
 ---
 
-![bg left: 70%](https://bootstraptema.ru/_sf/20/97627110.jpg) 
+![bg left: 70%](bisnes_strategia) 
 
 ---
 
