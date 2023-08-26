@@ -1,4 +1,3 @@
-
 import requests
 
 r = requests.post(
@@ -6,6 +5,6 @@ r = requests.post(
     data={
         'text': 'IT company',
     },
-    headers={'api-key': ''}
+    headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
 )
 print(r.json())
