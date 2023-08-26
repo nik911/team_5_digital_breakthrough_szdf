@@ -1,5 +1,6 @@
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
+from bs4 import BeautifulSoup
+import pandas as pd
 from datetime import datetime
 import requests
 import json
@@ -28,6 +29,9 @@ def w():
             email = request.json['email']
             phone = request.json['phone']
             address = request.json['address']
+            industry = request.json['industry'] #нет у Арсения
+            inn = request.json['inn'] #нет у Арсения
+
 
             #industry for tam sam som нет на сайте
             APRU = 1  # выручка / число клиентов
@@ -38,7 +42,8 @@ def w():
                 rep = {'title': title, 'problem': problem, 'target': target, 'description': description,
                        'advantages': advantages, 'functionality': functionality, 'team': team, 'investors': investors,
                        'investsAmount': investsAmount, 'investsTarget': investsTarget, 'roadmap': roadmap,
-                       'email': email, 'phone': phone, 'address': address}
+                       'email': email, 'phone': phone, 'address': address, 'industry': industry,
+                       'inn': inn}
                 js = json.dumps(rep, ensure_ascii=False)
                 f.write(js)
             return '1'
@@ -104,7 +109,7 @@ def problem():
             return text['description']
 
 
-@app.route('/tam',methods = ['POST', 'GET'])
+@app.route('/tam',methods = ['GET'])
 def tam():
     with open('json.json', 'r', encoding='utf-8') as f:
         text = json.load(f)
@@ -128,7 +133,7 @@ def tam():
         return completion.choices[0].tex
 
 
-@app.route('/sam',methods = ['POST', 'GET'])
+@app.route('/sam',methods = ['GET'])
 def sam():
     with open('json.json', 'r', encoding='utf-8') as f:
         text = json.load(f)
@@ -152,7 +157,7 @@ def sam():
         return completion.choices[0].tex
 
 
-@app.route('/som',methods = ['POST', 'GET'])
+@app.route('/som',methods = ['GET'])
 def som():
     with open('json.json', 'r', encoding='utf-8') as f:
         text = json.load(f)
@@ -174,6 +179,25 @@ def som():
 
         # выводим ответ
         return completion.choices[0].tex
+
+@app.route('/competitors',methods = ['POST', 'GET'])
+def competitors():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            data = {'key': 'nGjfQjlRSfqBNymo', 'inn': text['inn']}
+            r = requests.get('https://api.checko.ru/v2/company', params=data)
+            ogrn = r.json()['data']['ОГРН']
+            org = ogrn
+            url = 'https://checko.ru/company/resurs-' + str(org)
+            page = requests.get(url)
+            soup = BeautifulSoup(page.text, 'lxml')
+            table1 = soup.find("section", id="competitors")
+            headers = []
+            for i in table1.find_all("td"):
+                title = i.text
+                headers.append(title)
+            return headers
 
 
 if __name__=='__main__':
