@@ -6,6 +6,8 @@ import requests
 import json
 import openai
 
+from main import final_presa
+
 app = Flask(__name__)
 openai.api_key = ""
 
