@@ -1,7 +1,7 @@
 import openai
 
 # Replace YOUR_API_KEY with your OpenAI API key
-openai.api_key = "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"
+openai.api_key = ""
 
 # задаем модель и промпт
 model_engine = "text-davinci-003"

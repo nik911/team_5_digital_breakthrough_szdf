@@ -1,8 +1,6 @@
 
 import requests
 
-
-
 r = requests.post(
     "https://api.deepai.org/api/logo-generator",
     data={
