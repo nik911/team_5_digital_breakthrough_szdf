@@ -11,7 +11,6 @@ openai.api_key = ""
 
 @app.route('/w',methods = ['POST', 'GET'])
 def w():
-
     if request.method == 'POST':
         return ''
     else:

@@ -16,6 +16,10 @@
   ],
   "investsAmount": "Объем инвестиций",
   "investsTarget": "Куда будут направлены полученные средства",
+  "income": 1000,
+  "number_clients": 10,
+  "churn_rate": 10,
+  "inn": 6321313849,
   "roadmap": [
     {
       "date": "Дата дедлайна",

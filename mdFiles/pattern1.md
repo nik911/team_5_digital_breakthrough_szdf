@@ -10,8 +10,6 @@ class:
 # {{company_name}}
 
 ![bg right:40% 80%](https://catherineasquithgallery.com/uploads/posts/2021-02/1614529164_84-p-krasnii-krug-na-belom-fone-91.png) 
-
-
 {{mission_statement}}
 
 ---
@@ -26,14 +24,11 @@ class:
 
 ## Что такое {{company_name}}
 
-{{#each achievements}}
-- {{this}}
-- {{this}}
-- {{this}}
+{{advantages}}
 
 ## Целевая аудитория
 
-{{}}
+{{targen_person}}
 
 ---
 
@@ -47,24 +42,19 @@ class:
 
 ## Рынок
 
-![bg left](https://cdn2.slidemodel.com/wp-content/uploads/9074-01-tam-sam-som-1.jpg) 
-TAM {{}}
+![bg left](https://cdn2.slidemodel.com/wp-content/uploads/9074-01-tam-sam-som-1.jpg)
+TAM {{tam}}
 
-SAM {{}}
+SAM {{sam}}
 
-SOM {{}}
+SOM {{som}}
+
 
 ---
 
 ## Конкуренты
 
-{{#each competitors}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-
+{{competitors}}
 
 ---
 
@@ -76,17 +66,26 @@ SOM {{}}
 
 Трекшн, партнерства, выручка, количество клиентов, CAC - LTV
 
+Трекшн, партнерства, выручка, количество клиентов, CAC - 0.1V
+Выручка м
+{{1000}}
+Количество клиентов
+{{10}}
+Скорость оттока м
+{{10}}
+APRU
+{{100.0}}
+LT
+{{0.1}}
+LTV
+{{0.1V}}
+
 
 ---
 
 ## Команда
 
-{{#each team}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
-- {{this}}
+{{team}}
 
 ---
 
