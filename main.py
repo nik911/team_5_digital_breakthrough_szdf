@@ -9,9 +9,9 @@ from bs4 import BeautifulSoup
 from text.traction_and_finance import financial
 
 
-def final_presa():
-    oldfile = open("./mdFiles/pattern1.md", "r")
-    newfile = open("./mdFiles/pattern1_n.md", "w")
+def presa(pattern):
+    oldfile = open("./mdFiles/" + pattern + ".md", "r")
+    newfile = open("./mdFiles/" + pattern + "_n.md", "w")
 
     with open('json.json', 'r', encoding='utf-8') as f:
         text = json.load(f)
@@ -20,7 +20,7 @@ def final_presa():
 
         model_engine = "text-davinci-003"
         prompt = "Сформулируй проблематику более грамотно: "+text['problem']
-        max_tokens = 1024
+        max_tokens = 100
         # генерируем ответ
         """completion = openai.Completion.create(
             engine=model_engine,
@@ -37,7 +37,7 @@ def final_presa():
 
         model_engine = "text-davinci-003"
         prompt = "Сформулируй проблематику более грамотно: " + text['advantages']
-        max_tokens = 1024
+        max_tokens = 100
         # генерируем ответ
         """completion = openai.Completion.create(
             engine=model_engine,
@@ -55,8 +55,8 @@ def final_presa():
         functional_description = text['functionality']
 
         """model_engine = "text-davinci-003"
-        prompt = "Сфорулируй TAM отрасли " + text['industry']
-        max_tokens = 1024
+        prompt = "Назови значение TAM отрасли " + text['industry']
+        max_tokens = 100
         # генерируем ответ
         completion = openai.Completion.create(
             engine=model_engine,
@@ -68,12 +68,12 @@ def final_presa():
             presence_penalty=0
         )
         tam = completion.choices[0].tex"""
-        tam = "completion.choices[0].tex"
+        tam = "100"
 
         """text = json.load(f)
         model_engine = "text-davinci-003"
-        prompt = "Сфорулируй SAM отрасли " + text['industry']
-        max_tokens = 1024
+        prompt = "Назови значение SAM отрасли " + text['industry']
+        max_tokens = 100
         # генерируем ответ
         completion = openai.Completion.create(
             engine=model_engine,
@@ -85,12 +85,12 @@ def final_presa():
             presence_penalty=0
         )
         sam = completion.choices[0].tex"""
-        sam = "completion.choices[0].tex"
+        sam = "10000"
 
         """text = json.load(f)
         model_engine = "text-davinci-003"
-        prompt = "Сфорулируй SOM отрасли " + text['industry']
-        max_tokens = 1024
+        prompt = "Назови значение SOM отрасли " + text['industry']
+        max_tokens = 100
         # генерируем ответ
         completion = openai.Completion.create(
             engine=model_engine,
@@ -102,7 +102,7 @@ def final_presa():
             presence_penalty=0
         )
         som = completion.choices[0].tex"""
-        som = "completion.choices[0].tex"
+        som = "10000000"
 
 
         # Трекшн и финансы
@@ -161,11 +161,16 @@ def final_presa():
         newfile.write(line)
 
 
-    # готовим презентации
-    #command = '/bin/sh ./script_presa.sh'
-    #os.system(command)
-    #return "final_presa done!"
 
+def final_presa():
+    # готовим презентации
+    presa("pattern1")
+    presa("pattern2")
+    presa("pattern3")
+
+    command = '/bin/sh ./script_presa.sh'
+    os.system(command)
+    return "final_presa done!"
 
 
 final_presa()
