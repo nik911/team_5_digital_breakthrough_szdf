@@ -23,7 +23,6 @@ class financial:
 # *рекомендуется изучить информацию на листе "Churn Rate"/заполняется самостоятельноУровень оттока
 # churn_rate = 10
 
-
 test = financial(1000, 10, 10)
 print(test.APRU())
 print(test.LT())

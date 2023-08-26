@@ -1,0 +1,7 @@
+requests~=2.31.0
+huggingface~=0.0.1
+openai~=0.27.9
+torch~=2.0.1
+diffusers~=0.20.0
+pandas~=2.0.3
+beautifulsoup4~=4.12.2
