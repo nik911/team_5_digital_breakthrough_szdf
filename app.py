@@ -1,5 +1,6 @@
 from flask import Flask, request
 from bs4 import BeautifulSoup
+from PIL import Image, ImageDraw
 import pandas as pd
 from datetime import datetime
 import requests
@@ -49,6 +50,20 @@ def w():
             return '1'
 
 
+def create_image(c):
+    image = Image.new('RGB', (4000, 2000), 'white')
+    draw = ImageDraw.Draw(image)
+
+    draw.line([(400, 1000), (3600, 1000)], width=20, fill='#9999FF')
+    c = c
+    u = 3200 - 200 * c
+    y = u / (c + 1)
+    for i in range(c):
+        draw.ellipse([(y * (i + 1) + 200 * i + 400, 900), (y * (i + 1) + 200 * i + 600, 1100)], fill='#9999FF')
+
+    image.save('image.png')
+
+
 @app.route('/logo',methods = ['POST', 'GET'])
 def logo():
     if request.method == 'GET':
@@ -95,14 +110,14 @@ def problem():
             return completion.choices[0].tex
 
 @app.route('/target',methods = ['POST', 'GET'])
-def problem():
+def target():
     if request.method == 'GET':
         with open('json.json', 'r', encoding='utf-8') as f:
             text = json.load(f)
             return text['target']
 
 @app.route('/description',methods = ['POST', 'GET'])
-def problem():
+def description():
     if request.method == 'GET':
         with open('json.json', 'r', encoding='utf-8') as f:
             text = json.load(f)
@@ -200,5 +215,35 @@ def competitors():
             return headers
 
 
+@app.route('/email',methods = ['POST', 'GET'])
+def email():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            return text['email']
+
+
+@app.route('/phone',methods = ['POST', 'GET'])
+def phone():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            return text['phone']
+
+
+@app.route('/address',methods = ['POST', 'GET'])
+def address():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            return text['address']
+
+
+@app.route('/team',methods = ['POST', 'GET'])
+def team():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            return text['team'] #json name+role
 if __name__=='__main__':
     app.run(debug=True)
