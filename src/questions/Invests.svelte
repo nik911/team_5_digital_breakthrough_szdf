@@ -7,7 +7,7 @@
     <h2>6. Инвестиции</h2>
 
     <label>Каков необходимый объем инвестиций?</label>
-    <textarea bind:value={investsAmount} />
+    <input bind:value={investsAmount} />
 
     <label>Куда будут направлены полученные средства?</label>
     <textarea bind:value={investsTarget} />
