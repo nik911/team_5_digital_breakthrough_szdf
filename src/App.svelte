@@ -31,7 +31,10 @@
     <Roadmap />
     <Contacts />
 
-    <button style="width: 100%; padding: 1.5rem">
+    <button
+      on:click|preventDefault={() => alert("пока не)")}
+      style="width: 100%; padding: 1.5rem"
+    >
       Сгенерировать презентацию
     </button>
   </form>
