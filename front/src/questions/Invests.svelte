@@ -4,7 +4,7 @@
 </script>
 
 <section>
-    <h2>6. Инвестиции</h2>
+    <h2>8. Инвестиции</h2>
 
     <label>Каков необходимый объем инвестиций?</label>
     <input bind:value={investsAmount} />
