@@ -238,6 +238,7 @@ def final_presa():
     presa("pattern1")
     presa("pattern2")
     presa("pattern3")
+    presa("pattern1-3")
 
     command = '/bin/sh ./script_presa.sh'
     os.system(command)
