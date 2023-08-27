@@ -18,7 +18,7 @@
   async function onDataGenerate() {
     console.log(JSON.stringify(data));
     state = 1;
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 2000));
     state = 2;
   }
 </script>

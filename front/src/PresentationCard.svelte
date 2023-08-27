@@ -5,20 +5,22 @@
     let ready = false;
 
     (async () => {
-        while (true) {
-            try {
-                let res = await fetch(`/${name}.pptx`);
-                if (res.status === 200) {
-                    ready = true;
-                    break;
-                } else {
-                    console.log(`${name} not ready yet`);
-                }
-            } catch (e) {
-                console.log(e);
-            }
-            await new Promise((r) => setTimeout(r, 2000));
-        }
+        await new Promise((r) => setTimeout(r, 10000));
+        ready = true;
+        // while (true) {
+        //     try {
+        //         let res = await fetch(`/${name}.pptx`);
+        //         if (res.status === 200) {
+        //             ready = true;
+        //             break;
+        //         } else {
+        //             console.log(`${name} not ready yet`);
+        //         }
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        //     await new Promise((r) => setTimeout(r, 2000));
+        // }
     })();
 </script>
 
