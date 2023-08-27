@@ -235,10 +235,10 @@ def presa(pattern):
 
 def final_presa():
     # готовим презентации
-    presa("pattern1")
+    presa("pattern1-3")
     presa("pattern2")
     presa("pattern3")
-    presa("pattern1-3")
+
 
     command = '/bin/sh ./script_presa.sh'
     os.system(command)
