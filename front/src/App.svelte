@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PresentationCard from "./PresentationCard.svelte";
   import Competitors from "./questions/Competitors.svelte";
   import Contacts from "./questions/Contacts.svelte";
   import Description from "./questions/Description.svelte";
@@ -12,8 +13,13 @@
 
   let data: any = {};
 
+  let state = 0;
+
   async function onDataGenerate() {
     console.log(JSON.stringify(data));
+    state = 1;
+    await new Promise((r) => setTimeout(r, 1000));
+    state = 2;
   }
 </script>
 
@@ -54,11 +60,23 @@
       bind:address={data.address}
     />
 
-    <button
-      on:click|preventDefault={onDataGenerate}
-      style="width: 100%; padding: 1.5rem"
-    >
-      Сгенерировать презентацию
-    </button>
+    <section>
+      <button
+        on:click|preventDefault={onDataGenerate}
+        style="width: 100%; padding: 1.5rem"
+        disabled={state === 1}
+        aria-busy={state === 1}
+      >
+        Сгенерировать презентацию
+      </button>
+    </section>
   </form>
+  {#if state === 2}
+    <p>Выберите предпочтительный стиль презентации:</p>
+    <div class="grid">
+      <PresentationCard number={1} name="pattern1" />
+      <PresentationCard number={2} name="pattern2" />
+      <PresentationCard number={3} name="pattern3" />
+    </div>
+  {/if}
 </main>
