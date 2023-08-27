@@ -1,5 +1,6 @@
 <script lang="ts">
     export let industry = "";
+    export let clientsAmount = "";
 </script>
 
 <section>
@@ -10,4 +11,7 @@
         находитесь?
     </label>
     <input bind:value={industry} />
+
+    <label>На какое количество клиентов вы ориентириуетсь?</label>
+    <input bind:value={clientsAmount} />
 </section>

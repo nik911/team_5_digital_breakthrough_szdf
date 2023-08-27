@@ -37,7 +37,10 @@
       bind:advantages={data.advantages}
     />
     <Functionality bind:functionality={data.functionality} />
-    <Market bind:industry={data.industry} />
+    <Market
+      bind:industry={data.industry}
+      bind:clientsAmount={data.clientsAmount}
+    />
     <Competitors bind:inn={data.inn} />
     <Team bind:team={data.team} />
     <Invests
