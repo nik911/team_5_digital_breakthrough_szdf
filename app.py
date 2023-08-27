@@ -1,14 +1,15 @@
 from flask import Flask, request
 from bs4 import BeautifulSoup
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import pandas as pd
 from datetime import datetime
 import requests
 import json
 import openai
+import base64
 
 app = Flask(__name__)
-openai.api_key = ""
+#openai.api_key = "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"
 
 @app.route('/w',methods = ['POST', 'GET'])
 def w():
@@ -22,11 +23,11 @@ def w():
             description = request.json['description']
             advantages = request.json['advantages']
             functionality = request.json['functionality']
-            team = request.json['team'][0] # json
-            investors = request.json['investors'][0]
+            team = request.json['team'] # json
+            investors = request.json['investors']
             investsAmount = request.json['investsAmount']
             investsTarget =  request.json['investsTarget']
-            roadmap = request.json['roadmap'][0]
+            roadmap = request.json['roadmap']
             email = request.json['email']
             phone = request.json['phone']
             address = request.json['address']
@@ -106,8 +107,8 @@ def problem():
                 presence_penalty=0
             )
 
-            # выводим ответ
-            return completion.choices[0].tex
+            # выводим ответ completion.choices[0].tex
+            return text['problem']
 
 @app.route('/target',methods = ['POST', 'GET'])
 def target():
@@ -245,5 +246,56 @@ def team():
         with open('json.json', 'r', encoding='utf-8') as f:
             text = json.load(f)
             return text['team'] #json name+role
+
+@app.route('/roadmap',methods = ['POST', 'GET'])
+def roadmap():
+    if request.method == 'GET':
+        with open('json.json', 'r', encoding='utf-8') as f:
+            text = json.load(f)
+            t = text['roadmap']
+            c = len(t)
+        image = Image.new('RGB', (4000, 2000), 'white')
+        draw = ImageDraw.Draw(image)
+        fontL = ImageFont.truetype('Montserrat-Light.ttf', size=40)
+        fontM = ImageFont.truetype('Montserrat-Medium.ttf', size=45)
+        draw.line([(400, 1000), (3600, 1000)], width=20, fill='#9999FF')
+        u = 3200 - 200 * c
+        y = u / (c + 1)
+        for i in range(c):
+            draw.ellipse([(y * (i + 1) + 200 * i + 400, 900), (y * (i + 1) + 200 * i + 600, 1100)], fill='#9999FF')
+            p = t[i]
+            if i % 2 == 0:
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 650),
+                    p['goal'],
+                    # Добавляем шрифт к изображению
+                    font=fontL,
+                    fill='#1C0606')
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 600),
+                    p['date'],
+                    # Добавляем шрифт к изображению
+                    font=fontM,
+                    fill='#1C0606')
+            else:
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 1350),
+                    p['goal'],
+                    # Добавляем шрифт к изображению
+                    font=fontL,
+                    fill='#1C0606')
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 1300),
+                    p['date'],
+                    # Добавляем шрифт к изображению
+                    font=fontM,
+                    fill='#1C0606')
+
+
+        image.save('image.png')
+        image = open('image.png', 'rb')  # open binary file in read mode
+        image_read = image.read()
+        image_64_encode = base64.b64encode(image_read)
+        return image_64_encode
 if __name__=='__main__':
     app.run(debug=True)
