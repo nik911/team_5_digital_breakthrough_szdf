@@ -1,7 +1,7 @@
 import json
 import os
 import subprocess
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 import openai
 import requests
 from bs4 import BeautifulSoup
@@ -142,6 +142,47 @@ def presa(pattern):
         APRU = str(finan.APRU())
         LT = str(finan.LT())
         LTV = str(finan.LTV())
+
+        ##roadmap
+        
+        t = text['roadmap']
+        c = len(t)
+        image = Image.new('RGB', (4000, 2000), 'white')
+        draw = ImageDraw.Draw(image)
+        fontL = ImageFont.truetype('Montserrat-Light.ttf', size=40)
+        fontM = ImageFont.truetype('Montserrat-Medium.ttf', size=45)
+        draw.line([(400, 1000), (3600, 1000)], width=20, fill='#9999FF')
+        u = 3200 - 200 * c
+        y = u / (c + 1)
+        for i in range(c):
+            draw.ellipse([(y * (i + 1) + 200 * i + 400, 900), (y * (i + 1) + 200 * i + 600, 1100)], fill='#9999FF')
+            p = t[i]
+            if i % 2 == 0:
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 650),
+                    p['goal'],
+                    font=fontL,
+                    fill='#1C0606')
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 600),
+                    p['date'],
+                    font=fontM,
+                    fill='#1C0606')
+            else:
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 1350),
+                    p['goal'],
+                    font=fontL,
+                    fill='#1C0606')
+                draw.text(
+                    (y * (i + 1) + 200 * i + 400, 1300),
+                    p['date'],
+                    font=fontM,
+                    fill='#1C0606')
+
+
+        image.save('image.png')
+        roadmap = "image.png"
 
         ## Конкуренты
         with open('json.json', 'r', encoding='utf-8') as f:
