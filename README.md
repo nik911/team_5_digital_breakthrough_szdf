@@ -1,6 +1,6 @@
 ## Общее описание решения
 Pitchdecker  - сервис для создания презентационных материалов (Pitch Deck) с использованием ИИ. Сервис позволяет анализировать текстовую информацию и преобразовывать ее в понятные, 
-структурированные, доработанные и красивые слайды Pitch Deck презентации.
+структурированные, доработанные и красивые слайды Pitch Deck презентации. 
 
 ## Технические особенности:
 
@@ -16,3 +16,9 @@ Executing a serial command
 virtualenv -p python3 env
 source env/bin/activate
 pip install -r requirements.txt
+
+
+## Start service
+cd /front 
+nmp install
+nmp run dev
