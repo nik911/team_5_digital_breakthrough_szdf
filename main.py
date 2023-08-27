@@ -226,6 +226,7 @@ def presa(pattern):
         line = line.replace("LTV", LTV)
         line = line.replace("competitors", competitors)
         line = line.replace("count", count)
+        line = line.replace("roadmap", str(roadmap))
         line = line.replace("email", email)
         line = line.replace("phone", phone)
         line = line.replace("address", address)
