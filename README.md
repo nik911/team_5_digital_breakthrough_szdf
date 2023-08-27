@@ -4,7 +4,7 @@ Pitchdecker  - сервис для создания презентационны
 
 ## Технические особенности:
 
-Marp, llama, GPT, Stable diffusion, Flask, React, Numpy, Pandas
+Marp, llama, GPT, Stable diffusion, Flask, Svelte, Numpy, Pandas
 
 ## Уникальность:
 
